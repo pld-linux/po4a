@@ -1,5 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Framework to translate documentation and other materials
+Summary(pl):	Szkielet do t³umaczenia dokumentacji i innych materia³ów
 Name:		po4a
 Version:	0.25
 Release:	0.1
@@ -18,6 +19,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Po4a eases translation work, and in particular the maintenance of
 translations, using gettext tools on areas where they were not
 expected like documentation.
+
+%description -l pl
+po4a u³atwia pracê przy t³umaczeniu, a w szczególno¶ci utrzymywanie
+t³umaczeñ przy u¿yciu narzêdzi gettexta w obszarach, gdzie nie by³y
+przewidywane, jak na przyk³ad dokumentacja.
 
 %prep
 %setup -q
@@ -44,9 +50,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc README* TODO
 %attr(755,root,root) %{_bindir}/*
 %{perl_vendorlib}/Locale/Po4a
+%{_mandir}/man[137]/*
 %lang(ca) %{_mandir}/ca/man[137]/*
 %lang(es) %{_mandir}/es/man[137]/*
 %lang(fr) %{_mandir}/fr/man[137]/*
 %lang(it) %{_mandir}/it/man[137]/*
 %lang(pl) %{_mandir}/pl/man[137]/*
-%{_mandir}/man[137]/*
