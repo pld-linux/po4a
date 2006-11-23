@@ -2,14 +2,17 @@
 Summary:	Framework to translate documentation and other materials
 Summary(pl):	Szkielet do t³umaczenia dokumentacji i innych materia³ów
 Name:		po4a
-Version:	0.25
-Release:	0.1
+Version:	0.29
+Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://alioth.debian.org/download.php/1556/%{name}-%{version}.tar.gz
-# Source0-md5:	e868a14e5e5212d1e1d78e0905f01fe5
+#Source0Download: http://alioth.debian.org/frs/?group_id=30267
+Source0:	http://alioth.debian.org/frs/download.php/1798/%{name}-%{version}.tar.gz
+# Source0-md5:	522c94f4c25e0d18bb00f33d209fe2a8
 URL:		http://alioth.debian.org/projects/po4a/
+BuildRequires:	perl-Locale-gettext >= 1.01
 BuildRequires:	perl-Module-Build
+BuildRequires:	perl-Text-WrapI18N
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
