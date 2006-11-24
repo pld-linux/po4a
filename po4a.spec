@@ -13,6 +13,7 @@ URL:		http://alioth.debian.org/projects/po4a/
 BuildRequires:	perl-Locale-gettext >= 1.01
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-Text-WrapI18N
+BuildRequires:	perl-YAML
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
@@ -44,6 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
+
+rm -f $RPM_BUILD_ROOT%{perl_vendorarch}/auto/po4a/.packlist
 
 %clean
 rm -rf $RPM_BUILD_ROOT
