@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	Framework to translate documentation and other materials
-Summary(pl):	Szkielet do t≥umaczenia dokumentacji i innych materia≥Ûw
+Summary(pl.UTF-8):   Szkielet do t≈Çumaczenia dokumentacji i innych materia≈Ç√≥w
 Name:		po4a
 Version:	0.29
 Release:	1
@@ -24,10 +24,10 @@ Po4a eases translation work, and in particular the maintenance of
 translations, using gettext tools on areas where they were not
 expected like documentation.
 
-%description -l pl
-po4a u≥atwia pracÍ przy t≥umaczeniu, a w szczegÛlno∂ci utrzymywanie
-t≥umaczeÒ przy uøyciu narzÍdzi gettexta w obszarach, gdzie nie by≥y
-przewidywane, jak na przyk≥ad dokumentacja.
+%description -l pl.UTF-8
+po4a u≈Çatwia pracƒô przy t≈Çumaczeniu, a w szczeg√≥lno≈õci utrzymywanie
+t≈Çumacze≈Ñ przy u≈ºyciu narzƒôdzi gettexta w obszarach, gdzie nie by≈Çy
+przewidywane, jak na przyk≈Çad dokumentacja.
 
 %prep
 %setup -q
