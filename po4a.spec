@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
 Version:	0.41
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: http://alioth.debian.org/frs/?group_id=30267
 Source0:	http://alioth.debian.org/frs/download.php/3472/%{name}-%{version}.tar.gz
@@ -55,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README* TODO
+%doc NEWS README README.maintainers TODO
 %attr(755,root,root) %{_bindir}/msguntypot
 %attr(755,root,root) %{_bindir}/po4a
 %attr(755,root,root) %{_bindir}/po4a-build
@@ -66,7 +66,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/po4aman-display-po
 %attr(755,root,root) %{_bindir}/po4apod-display-po
 %{perl_vendorlib}/Locale/Po4a
-%{_mandir}/man[1357]/*
+%{_mandir}/man1/msguntypot.1*
+%{_mandir}/man1/po4a.1*
+%{_mandir}/man1/po4a-build.1*
+%{_mandir}/man1/po4a-gettextize.1*
+%{_mandir}/man1/po4a-normalize.1*
+%{_mandir}/man1/po4a-translate.1*
+%{_mandir}/man1/po4a-updatepo.1*
+%{_mandir}/man1/po4aman-display-po.1*
+%{_mandir}/man1/po4apod-display-po.1*
+%{_mandir}/man3/Locale::Po4a::*.3*
+%{_mandir}/man5/po4a-build.conf.5*
+%{_mandir}/man7/po4a.7*
+%{_mandir}/man7/po4a-runtime.7*
 %lang(ca) %{_mandir}/ca/man[1357]/*
 %lang(es) %{_mandir}/es/man[1357]/*
 %lang(fr) %{_mandir}/fr/man[1357]/*
