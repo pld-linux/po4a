@@ -1,0 +1,15 @@
+--- po4a-0.44/lib/Locale/Po4a/Po.pm.orig	2013-06-15 09:13:34.160806393 +0200
++++ po4a-0.44/lib/Locale/Po4a/Po.pm	2013-06-15 09:15:42.584137049 +0200
+@@ -572,10 +572,9 @@
+ 
+     if (-e $filename) {
+         my ($tmp_filename);
+-        (undef,$tmp_filename)=File::Temp->tempfile($filename."XXXX",
+-                                                   DIR    => "/tmp",
++        $tmp_filename = File::Temp->new(TEMPLATE => $filename."XXXX",
+                                                    OPEN   => 0,
+-                                                   UNLINK => 0);
++                                                   UNLINK => 0)->filename;
+         $self->write($tmp_filename);
+         move_po_if_needed($tmp_filename, $filename);
+     } else {
