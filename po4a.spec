@@ -11,6 +11,7 @@ Source0:	http://alioth.debian.org/frs/download.php/file/3786/%{name}-%{version}.
 # Source0-md5:	ff7b6859d729a52a57a880d6cf6a7fcf
 Patch0:		%{name}-tempfile.patch
 URL:		http://alioth.debian.org/projects/po4a/
+BuildRequires:	perl-Encode
 BuildRequires:	perl-Locale-gettext >= 1.01
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-Text-WrapI18N
