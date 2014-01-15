@@ -3,7 +3,7 @@ Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
 Version:	0.44
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: http://alioth.debian.org/frs/?group_id=30267
@@ -41,6 +41,7 @@ przewidywane, jak na przykład dokumentacja.
 
 %build
 %{__perl} Build.PL \
+	perl=%{__perl} \
 	destdir=$RPM_BUILD_ROOT \
 	installdirs=vendor
 ./Build
