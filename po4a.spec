@@ -3,7 +3,7 @@ Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
 Version:	0.44
-Release:	4
+Release:	5
 License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: http://alioth.debian.org/frs/?group_id=30267
@@ -19,6 +19,9 @@ BuildRequires:	perl-YAML
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	sed >= 4.0
+%if %(locale -a | grep -q '^en_US\.utf8$'; echo $?)
+BuildRequires:	glibc-localedb-all
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,13 +45,15 @@ przewidywane, jak na przykład dokumentacja.
 %build
 %{__perl} Build.PL \
 	perl=%{__perl} \
-	destdir=$RPM_BUILD_ROOT \
 	installdirs=vendor
+
+LC_ALL=en_US.UTF-8 \
 ./Build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-./Build install
+./Build install \
+	destdir=$RPM_BUILD_ROOT
 
 %find_lang %{name}
 
