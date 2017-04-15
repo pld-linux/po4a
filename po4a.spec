@@ -2,19 +2,19 @@
 Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
-Version:	0.44
-Release:	5
+Version:	0.51
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: http://alioth.debian.org/frs/?group_id=30267
-Source0:	http://alioth.debian.org/frs/download.php/file/3786/%{name}-%{version}.tar.gz
-# Source0-md5:	ff7b6859d729a52a57a880d6cf6a7fcf
-Patch0:		%{name}-tempfile.patch
+Source0:	https://alioth.debian.org/frs/download.php/file/4214/%{name}-%{version}.tar.gz
+# Source0-md5:	221971cdd862cfb91477f0d9fa67ab38
 URL:		http://alioth.debian.org/projects/po4a/
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Locale-gettext >= 1.01
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-Text-WrapI18N
+BuildRequires:	perl-Unicode-LineBreak
 BuildRequires:	perl-YAML
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -37,7 +37,6 @@ przewidywane, jak na przykład dokumentacja.
 
 %prep
 %setup -q
-%patch0 -p1
 
 # fix #!%{_bindir}/env perl -w -> #!%{__perl}:
 %{__sed} -i -e '1s,^#!.*perl,#!%{__perl},' po4a* scripts/*
@@ -86,12 +85,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/po4apod-display-po.1*
 %{_mandir}/man3/Locale::Po4a::*.3*
 %{_mandir}/man7/po4a.7*
+%{_mandir}/man5/po4a-build.conf.5*
+%{_mandir}/man7/po4a-runtime.7*
 %lang(ca) %{_mandir}/ca/man[1357]/*
 %lang(ca) %{_mandir}/de/man[1357]/*
 %lang(es) %{_mandir}/es/man[1357]/*
 %lang(fr) %{_mandir}/fr/man[1357]/*
 %lang(it) %{_mandir}/it/man[1357]/*
 %lang(pl) %{_mandir}/pl/man[1357]/*
+%lang(pt_BR) %{_mandir}/pt_BR/man[1357]/*
 %lang(ja) %{_mandir}/ja/man[1357]/*
 %lang(pt) %{_mandir}/pt/man[1357]/*
 %lang(ru) %{_mandir}/ru/man[1357]/*
