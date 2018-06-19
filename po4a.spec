@@ -2,25 +2,26 @@
 Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
-Version:	0.51
-Release:	2
+Version:	0.53
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
-# Source0Download: http://alioth.debian.org/frs/?group_id=30267
-Source0:	https://alioth.debian.org/frs/download.php/file/4214/%{name}-%{version}.tar.gz
-# Source0-md5:	221971cdd862cfb91477f0d9fa67ab38
-URL:		http://alioth.debian.org/projects/po4a/
+# Source0Download: https://github.com/mquinson/po4a/releases
+Source0:	https://github.com/mquinson/po4a/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	5f0728b762352edce650ad0165e6a173
+URL:		https://po4a.org/
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Locale-gettext >= 1.01
-BuildRequires:	perl-Module-Build
+BuildRequires:	perl-Module-Build >= 0.42
+BuildRequires:	perl-SGMLS
 BuildRequires:	perl-Term-ReadKey
 BuildRequires:	perl-Text-WrapI18N
 BuildRequires:	perl-Unicode-LineBreak
-BuildRequires:	perl-YAML
+BuildRequires:	perl-YAML-Tiny
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	sed >= 4.0
-%if %(locale -a | grep -q '^en_US\.utf8$'; echo $?)
+%if %(locale -a | grep -q '^C\.utf8$'; echo $?)
 BuildRequires:	glibc-localedb-all
 %endif
 BuildArch:	noarch
@@ -47,7 +48,7 @@ przewidywane, jak na przykład dokumentacja.
 	perl=%{__perl} \
 	installdirs=vendor
 
-LC_ALL=en_US.UTF-8 \
+LC_ALL=C.UTF-8 \
 ./Build
 
 %install
@@ -98,3 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_mandir}/ja/man[1357]/*
 %lang(pt) %{_mandir}/pt/man[1357]/*
 %lang(ru) %{_mandir}/ru/man[1357]/*
+%lang(uk) %{_mandir}/uk/man[1357]/*
