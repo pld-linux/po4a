@@ -1,13 +1,13 @@
 Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
-Version:	0.53
+Version:	0.69
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: https://github.com/mquinson/po4a/releases
 Source0:	https://github.com/mquinson/po4a/releases/download/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	5f0728b762352edce650ad0165e6a173
+# Source0-md5:	72844709ea43c5956e7435a5301bac11
 URL:		https://po4a.org/
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Locale-gettext >= 1.01
@@ -40,7 +40,7 @@ przewidywane, jak na przykład dokumentacja.
 %setup -q
 
 # fix #!%{_bindir}/env perl -w -> #!%{__perl}:
-%{__sed} -i -e '1s,^#!.*perl,#!%{__perl},' po4a* scripts/*
+%{__sed} -i -e '1s,/usr/bin/env perl,%{__perl},' msguntypot po4a* scripts/msgsearch
 
 %build
 %{__perl} Build.PL \
@@ -52,50 +52,60 @@ LC_ALL=C.UTF-8 \
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 ./Build install \
 	destdir=$RPM_BUILD_ROOT
 
-%find_lang %{name}
-
 %{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/po4a/.packlist
+
+# unify dir names
+%{__mv} $RPM_BUILD_ROOT%{_mandir}/{sr_Cyrl,sr}
+%{__mv} $RPM_BUILD_ROOT%{_mandir}/{zh_CHS,zh_CN}
+%{__mv} $RPM_BUILD_ROOT%{_mandir}/{zh_Hant,zh_TW}
+# zh_TW already exists
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/zh_Hant
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS README README.maintainers TODO
+%doc NEWS README.maintainers README.md TODO
 %attr(755,root,root) %{_bindir}/msguntypot
 %attr(755,root,root) %{_bindir}/po4a
-%attr(755,root,root) %{_bindir}/po4a-build
+%attr(755,root,root) %{_bindir}/po4a-display-man
+%attr(755,root,root) %{_bindir}/po4a-display-pod
 %attr(755,root,root) %{_bindir}/po4a-gettextize
 %attr(755,root,root) %{_bindir}/po4a-normalize
 %attr(755,root,root) %{_bindir}/po4a-translate
 %attr(755,root,root) %{_bindir}/po4a-updatepo
-%attr(755,root,root) %{_bindir}/po4aman-display-po
-%attr(755,root,root) %{_bindir}/po4apod-display-po
 %{perl_vendorlib}/Locale/Po4a
 %{_mandir}/man1/msguntypot.1*
 %{_mandir}/man1/po4a.1*
-%{_mandir}/man1/po4a-build.1*
+%{_mandir}/man1/po4a-display-man.1*
+%{_mandir}/man1/po4a-display-pod.1*
 %{_mandir}/man1/po4a-gettextize.1*
 %{_mandir}/man1/po4a-normalize.1*
 %{_mandir}/man1/po4a-translate.1*
 %{_mandir}/man1/po4a-updatepo.1*
-%{_mandir}/man1/po4aman-display-po.1*
-%{_mandir}/man1/po4apod-display-po.1*
 %{_mandir}/man3/Locale::Po4a::*.3*
 %{_mandir}/man7/po4a.7*
-%{_mandir}/man5/po4a-build.conf.5*
-%{_mandir}/man7/po4a-runtime.7*
-%lang(ca) %{_mandir}/ca/man[1357]/*
-%lang(ca) %{_mandir}/de/man[1357]/*
-%lang(es) %{_mandir}/es/man[1357]/*
-%lang(fr) %{_mandir}/fr/man[1357]/*
-%lang(it) %{_mandir}/it/man[1357]/*
-%lang(pl) %{_mandir}/pl/man[1357]/*
-%lang(pt_BR) %{_mandir}/pt_BR/man[1357]/*
-%lang(ja) %{_mandir}/ja/man[1357]/*
-%lang(pt) %{_mandir}/pt/man[1357]/*
-%lang(ru) %{_mandir}/ru/man[1357]/*
-%lang(uk) %{_mandir}/uk/man[1357]/*
+%lang(ca) %{_mandir}/ca/man[137]/*
+%lang(de) %{_mandir}/de/man[137]/*
+%lang(eo) %{_mandir}/eo/man[137]/*
+%lang(es) %{_mandir}/es/man[137]/*
+%lang(fr) %{_mandir}/fr/man[137]/*
+%lang(it) %{_mandir}/it/man[137]/*
+%lang(ja) %{_mandir}/ja/man[137]/*
+%lang(nb) %{_mandir}/nb/man[137]/*
+%lang(nl) %{_mandir}/nl/man[137]/*
+%lang(pl) %{_mandir}/pl/man[137]/*
+%lang(pt) %{_mandir}/pt/man[137]/*
+%lang(pt_BR) %{_mandir}/pt_BR/man[137]/*
+%lang(ru) %{_mandir}/ru/man[137]/*
+%lang(sr) %{_mandir}/sr/man[137]/*
+%lang(uk) %{_mandir}/uk/man[137]/*
+%lang(zh_CN) %{_mandir}/zh_CN/man[137]/*
+%lang(zh_TW) %{_mandir}/zh_TW/man[137]/*
