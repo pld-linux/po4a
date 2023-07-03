@@ -12,6 +12,7 @@ URL:		https://po4a.org/
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Locale-gettext >= 1.01
 BuildRequires:	perl-Module-Build >= 0.42
+BuildRequires:	perl-Pod-Parser
 BuildRequires:	perl-SGMLS
 BuildRequires:	perl-Term-ReadKey
 BuildRequires:	perl-Text-WrapI18N
