@@ -9,6 +9,8 @@ Group:		Development/Tools
 Source0:	https://github.com/mquinson/po4a/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	72844709ea43c5956e7435a5301bac11
 URL:		https://po4a.org/
+BuildRequires:	docbook-dtd412-xml
+BuildRequires:	docbook-style-xsl-nons
 BuildRequires:	perl-Encode
 BuildRequires:	perl-Locale-gettext >= 1.01
 BuildRequires:	perl-Module-Build >= 0.42
