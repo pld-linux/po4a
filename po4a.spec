@@ -2,7 +2,7 @@ Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
 Version:	0.70
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: https://github.com/mquinson/po4a/releases
@@ -66,8 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__mv} $RPM_BUILD_ROOT%{_mandir}/{zh_Hans,zh_CN}
 %{__mv} $RPM_BUILD_ROOT%{_mandir}/{zh_Hant,zh_TW}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{sr_Cyrl,sr}
-# zh_TW already exists
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/zh_Hant
+# zh_CN and zh_TW already exist
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{zh_Hans,zh_Hant}
 
 %find_lang %{name}
 
