@@ -1,13 +1,16 @@
+#TODO
+#  package or delete %%{_mandir}/sr/sr_Cyrl
+
 Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
-Version:	0.70
-Release:	2
+Version:	0.74
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 # Source0Download: https://github.com/mquinson/po4a/releases
-Source0:	https://github.com/mquinson/po4a/files/14077820/%{name}-%{version}.tar.gz
-# Source0-md5:	c9a1851f5c7adba77d76466dc97608fd
+Source0:	https://github.com/mquinson/po4a/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	83eda33209aeccbb47d800c6ec52c7eb
 URL:		https://po4a.org/
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	docbook-style-xsl-nons
@@ -108,8 +111,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pl) %{_mandir}/pl/man[137]/*
 %lang(pt) %{_mandir}/pt/man[137]/*
 %lang(pt_BR) %{_mandir}/pt_BR/man[137]/*
+%lang(ro) %{_mandir}/ro/man[137]/*
 %lang(ru) %{_mandir}/ru/man[137]/*
 %lang(sr) %{_mandir}/sr/man[137]/*
+%lang(ta) %{_mandir}/ta/man[137]/*
 %lang(uk) %{_mandir}/uk/man[137]/*
 %lang(zh_CN) %{_mandir}/zh_CN/man[137]/*
 %lang(zh_TW) %{_mandir}/zh_TW/man[137]/*
