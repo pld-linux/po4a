@@ -1,6 +1,3 @@
-#TODO
-#  package or delete %%{_mandir}/sr/sr_Cyrl
-
 Summary:	Framework to translate documentation and other materials
 Summary(pl.UTF-8):	Szkielet do tłumaczenia dokumentacji i innych materiałów
 Name:		po4a
@@ -65,10 +62,11 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/auto/po4a/.packlist
 
 # unify dir names
-%{__mv} $RPM_BUILD_ROOT%{_mandir}/{sr_Cyrl,sr}
 %{__mv} $RPM_BUILD_ROOT%{_mandir}/{zh_Hans,zh_CN}
 %{__mv} $RPM_BUILD_ROOT%{_mandir}/{zh_Hant,zh_TW}
-%{__mv} $RPM_BUILD_ROOT%{_localedir}/{sr_Cyrl,sr}
+# outdated version of sr (which is also cyrillic)
+%{__rm} -r $RPM_BUILD_ROOT%{_mandir}/sr_Cyrl
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/sr_Cyrl
 # zh_CN and zh_TW already exist
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{zh_Hans,zh_Hant}
 
